@@ -13,6 +13,21 @@
     <Filter Include="ThirdParty\SDK">
       <UniqueIdentifier>{d627cd3a-b8a4-4416-b374-345a9887d408}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\MainThread">
+      <UniqueIdentifier>{ebbc4c31-a90a-49f5-9cd7-e178491ce927}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Global">
+      <UniqueIdentifier>{b25169e3-131e-4436-8473-8fff5e56216c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Define">
+      <UniqueIdentifier>{8509239a-6a80-4f42-b600-c43f887998cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Menu">
+      <UniqueIdentifier>{3e742ae3-8c08-4f7e-b5af-9e90ded7d474}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Static">
+      <UniqueIdentifier>{563b9ed7-76fe-4635-932c-142a4fd5ef46}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -38,6 +53,27 @@
     </ClInclude>
     <ClInclude Include="ImGui\imstb_truetype.h">
       <Filter>ThirdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="MainThread.h">
+      <Filter>Source\MainThread</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>Source\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Function.h">
+      <Filter>Source\Define</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>Source\Define</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>Source\Define</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Source\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Static.h">
+      <Filter>Source\Static</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +106,21 @@
     </ClCompile>
     <ClCompile Include="SDK\ReadyOrNot_functions.cpp">
       <Filter>ThirdParty\SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="MainThread.cpp">
+      <Filter>Source\MainThread</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Global.cpp">
+      <Filter>Source\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Static.cpp">
+      <Filter>Source\Static</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
