@@ -29,14 +29,21 @@ bool GetGPawn()
     return SDK::UKismetSystemLibrary::IsValid(Unreal::GPawn);
 }
 
-float FLerp(float a, float b, float alpha)
+float FLerp(float a, float b, float alpha, float hold)
 {
-	return a + (b - a) * alpha;
+    const float value = a + (b - a) * alpha;
+    return FAbs(b - value) > hold ? value : b;
 }
 
-float FInterp(float a, float b, float speed)
+float FInterp(float a, float b, float speed, float hold)
 {
-	return FLerp(a, b, speed * GetDeltaTime());
+    const float value = FLerp(a, b, speed * GetDeltaTime());
+    return FAbs(b - value) > hold ? value : b;
+}
+
+float FAbs(float value)
+{
+    return value > 0.0f ? value : -value;
 }
 
 std::string ToUtf8(const std::wstring& wstr)
@@ -67,11 +74,19 @@ bool FindStringIgnore(const std::string& find_in, const std::string sub_str)
 
 void MainDrawText(ImVec2 pos, const std::wstring& text, ImVec4 color, ImFont* font, float fontsize, ImDrawList* draw_list)
 {
+    if (!font)
+    {
+        return;
+    }
     draw_list->AddText(font, fontsize, pos, ImGui::ColorConvertFloat4ToU32(color), ToUtf8(text).c_str());
 }
 
 void MainDrawText(ImVec2 pos, const std::string& text, ImVec4 color, ImFont* font, float fontsize, ImDrawList* draw_list)
 {
+    if (!font)
+    {
+        return;
+    }
     draw_list->AddText(font, fontsize, pos, ImGui::ColorConvertFloat4ToU32(color), text.c_str());
 }
 

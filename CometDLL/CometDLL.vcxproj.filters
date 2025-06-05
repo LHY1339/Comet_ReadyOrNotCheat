@@ -28,6 +28,9 @@
     <Filter Include="Source\Static">
       <UniqueIdentifier>{563b9ed7-76fe-4635-932c-142a4fd5ef46}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Language">
+      <UniqueIdentifier>{472b05fb-e23b-4b34-b3a7-e78419464d94}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -75,6 +78,9 @@
     <ClInclude Include="Static.h">
       <Filter>Source\Static</Filter>
     </ClInclude>
+    <ClInclude Include="Language.h">
+      <Filter>Source\Language</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImGui\imgui.cpp">
@@ -121,6 +127,9 @@
     </ClCompile>
     <ClCompile Include="Static.cpp">
       <Filter>Source\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="Language.cpp">
+      <Filter>Source\Language</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

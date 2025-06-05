@@ -2,6 +2,7 @@
 #include "Global.h"
 #include "Menu.h"
 #include "Static.h"
+#include "Language.h"
 
 #include "ImGui/imgui.h"
 #include "ImGui/imgui_impl_dx11.h"
@@ -125,20 +126,18 @@ void PI_ImGui(IDXGISwapChain* This, UINT SyncInterval, UINT Flags)
     ImGui_ImplWin32_Init(Game::Hwnd);
     ImGui_ImplDX11_Init(Game::Device, Game::DeviceContext);
 
-    ImGui::GetStyle().Colors[ImGuiCol_WindowBg] = ImVec4(0.05f, 0.05f, 0.05f, 1.0f);
-    ImGui::GetStyle().Colors[ImGuiCol_Text] = ImVec4(0.9f, 0.9f, 0.9f, 1.0f);
-    ImGui::GetStyle().Colors[ImGuiCol_Button] = ImVec4(0.2f, 0.2f, 0.2f, 0.6f);
-    ImGui::GetStyle().Colors[ImGuiCol_ButtonHovered] = ImVec4(0.3f, 0.3f, 0.3f, 0.6f);
-    ImGui::GetStyle().Colors[ImGuiCol_ButtonActive] = ImVec4(0.3f, 0.3f, 0.3f, 0.8f);
-    ImGui::GetStyle().Colors[ImGuiCol_CheckMark] = ImVec4(0.9f, 0.9f, 0.9f, 1.0f);
-    ImGui::GetStyle().Colors[ImGuiCol_FrameBg] = ImVec4(0.2f, 0.2f, 0.2f, 0.6f);
-    ImGui::GetStyle().Colors[ImGuiCol_FrameBgHovered] = ImVec4(0.3f, 0.3f, 0.3f, 0.6f);
-    ImGui::GetStyle().Colors[ImGuiCol_FrameBgActive] = ImVec4(0.3f, 0.3f, 0.3f, 0.8f);
-    ImGui::GetStyle().Colors[ImGuiCol_SliderGrab] = ImVec4(1.0f, 1.0f, 1.0f, 0.2f);
-    ImGui::GetStyle().Colors[ImGuiCol_SliderGrabActive] = ImVec4(1.0f, 1.0f, 1.0f, 0.4f);
-    ImGui::GetStyle().Colors[ImGuiCol_Header] = ImVec4(0.2f, 0.2f, 0.2f, 0.6f);
-    ImGui::GetStyle().Colors[ImGuiCol_HeaderActive] = ImVec4(0.3f, 0.3f, 0.3f, 0.8f);
-    ImGui::GetStyle().Colors[ImGuiCol_HeaderHovered] = ImVec4(0.3f, 0.3f, 0.3f, 0.6f);
+    ImGuiStyle& style = ImGui::GetStyle();
+    style.Colors[ImGuiCol_WindowBg] = ImVec4(0.05f, 0.05f, 0.10f, 1.0f);
+    style.Colors[ImGuiCol_Button] = ImVec4(0.2f, 0.5f, 1.0f, 1.0f);
+    style.Colors[ImGuiCol_ButtonHovered] = ImVec4(0.3f, 0.6f, 1.0f, 1.0f);
+    style.Colors[ImGuiCol_ButtonActive] = ImVec4(0.4f, 0.7f, 1.0f, 1.0f);
+    style.Colors[ImGuiCol_Border] = ImVec4(0.1f, 0.3f, 0.5f, 1.0f);
+    style.Colors[ImGuiCol_Separator] = ImVec4(0.2f, 0.6f, 1.0f, 1.0f);
+    style.Colors[ImGuiCol_Text] = ImVec4(1.0f, 1.0f, 1.0f, 1.0f);
+    style.Colors[ImGuiCol_Header] = ImVec4(0.3f, 0.7f, 1.0f, 1.0f);
+    style.Colors[ImGuiCol_HeaderHovered] = ImVec4(0.4f, 0.8f, 1.0f, 1.0f);
+    style.Colors[ImGuiCol_HeaderActive] = ImVec4(0.5f, 0.9f, 1.0f, 1.0f);
+    style.WindowBorderSize = 1.0f;
 
     ImGui_ImplDX11_Init(Game::Device, Game::DeviceContext);
 }
@@ -158,6 +157,7 @@ HRESULT __stdcall Hook_PresentLoop(IDXGISwapChain* This, UINT SyncInterval, UINT
 
 void PL_ImGuiFrame(IDXGISwapChain* This, UINT SyncInterval, UINT Flags)
 {
+    QuickLoadLanguageAndFont();
     ImGui_ImplDX11_NewFrame();
     ImGui_ImplWin32_NewFrame();
     ImGui::NewFrame();

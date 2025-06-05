@@ -1,20 +1,65 @@
 #include "Global.h"
 #include "SDK.hpp"
+#include "Language.h"
 
-HWND Game::Hwnd = nullptr;
-DWORD64* Game::Vtb = nullptr;
-IDXGISwapChain* Game::SwapChain = nullptr;
-ID3D11Device* Game::Device = nullptr;
-ID3D11DeviceContext* Game::DeviceContext = nullptr;
-ID3D11RenderTargetView* Game::RenderTargetView = nullptr;
-Present Game::DefPresent = nullptr;
-Resize Game::DefResize = nullptr;
-WndProc Game::DefWndProc = nullptr;
-RECT Game::WndSize = {};
+namespace Game
+{
+    HWND Hwnd = nullptr;
+    DWORD64* Vtb = nullptr;
+    IDXGISwapChain* SwapChain = nullptr;
+    ID3D11Device* Device = nullptr;
+    ID3D11DeviceContext* DeviceContext = nullptr;
+    ID3D11RenderTargetView* RenderTargetView = nullptr;
+    Present DefPresent = nullptr;
+    Resize DefResize = nullptr;
+    WndProc DefWndProc = nullptr;
+    RECT WndSize = {};
+}
 
-bool Menu::IsOpen = true;
-ImVec2 Menu::WindowPos = ImVec2(0.0f, 0.0f);
+namespace Menu
+{
+    bool IsOpen = true;
+    ImVec2 WindowPos = ImVec2();
+    bool IsLanguageOpen = false;
+    ELanguage TargetLanguage = ELanguage::L_Chinese;
+}
 
-SDK::UWorld* Unreal::GWorld = nullptr;
-SDK::APlayerController* Unreal::GPlayerController = nullptr;
-SDK::APawn* Unreal::GPawn = nullptr;
+namespace Unreal
+{
+    SDK::UWorld* GWorld = nullptr;
+    SDK::APlayerController* GPlayerController = nullptr;
+    SDK::APawn* GPawn = nullptr;
+}
+
+namespace String
+{
+    namespace Menu
+    {
+        std::string Title = "";
+        std::string Lable = "";
+
+        std::string Visual = "";
+        std::string Aim = "";
+        std::string Player = "";
+        std::string Misc = "";
+        std::string Script = "";
+        std::string Config = "";
+        std::string Language = "Language";
+
+        std::string Chinese = "";
+        std::string English = "";
+        std::string Russian = "";
+        std::string Japanese = "";
+    }
+}
+
+namespace Resource
+{
+    namespace Fonts
+    {
+        ImFont* F10 = nullptr;
+        ImFont* F20 = nullptr;
+        //ImFont* F30 = nullptr;
+        //ImFont* F40 = nullptr;
+    }
+}

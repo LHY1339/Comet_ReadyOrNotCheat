@@ -10,8 +10,9 @@ bool GetGWorld();
 bool GetGPlayerController();
 bool GetGPawn();
 
-float FLerp(float a, float b, float alpha);
-float FInterp(float a, float b, float speed);
+float FLerp(float a, float b, float alpha, float hold = 0.01);
+float FInterp(float a, float b, float speed, float hold = 0.01);
+float FAbs(float value);
 
 std::string ToUtf8(const std::wstring& wstr);
 bool FindString(const std::string& find_in, const std::string sub_str);
