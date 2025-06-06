@@ -12,6 +12,8 @@
 #define MENU_W 800.0f
 #define MENU_H 400.0f
 
+#define LEFT_W 100.0f
+
 #define LANGUAGE_W 100.0f
 #define LANGUAGE_H 175.0f
 
@@ -32,7 +34,7 @@ void Loop_Logic()
     {
         Menu::IsOpen = !Menu::IsOpen;
     }
-    MenuAlpha = FInterp(MenuAlpha, Menu::IsOpen, 20.0f);
+    MenuAlpha = FInterp(MenuAlpha, Menu::IsOpen, 15.0f);
 }
 
 void Loop_Menu()
@@ -116,7 +118,7 @@ void MB_Left()
 {
     MainDrawRect(
         ImVec2(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y + 30.0f), 
-        ImVec2(ImGui::GetWindowPos().x + 100.0f, ImGui::GetWindowPos().y + MENU_H), 
+        ImVec2(ImGui::GetWindowPos().x + LEFT_W, ImGui::GetWindowPos().y + MENU_H),
         ImVec4(1.0f, 1.0f, 1.0f, 0.05f * MenuAlpha),
         ImGui::GetWindowDrawList()
     );
@@ -127,33 +129,39 @@ void MB_Left()
     ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(1.0f, 1.0f, 1.0f, 0.0f));
 
     ImGui::SetCursorPos(ImVec2(5.0f, 35.0f));
-    if (ImGui::Button(String::Menu::Visual.c_str(), ImVec2(90.0f, 30.0f)))
+    if (ImGui::Button(String::Menu::Visual.c_str(), ImVec2(LEFT_W - 10.0f, 30.0f)))
     {
         SelectIndex = 0;
     }
 
     ImGui::SetCursorPos(ImVec2(5.0f, 70));
-    if (ImGui::Button(String::Menu::Aim.c_str(), ImVec2(90.0f, 30.0f)))
+    if (ImGui::Button(String::Menu::Aim.c_str(), ImVec2(LEFT_W - 10.0f, 30.0f)))
     {
         SelectIndex = 1;
     }
 
     ImGui::SetCursorPos(ImVec2(5.0f, 105));
-    if (ImGui::Button(String::Menu::Player.c_str(), ImVec2(90.0f, 30.0f)))
+    if (ImGui::Button(String::Menu::Player.c_str(), ImVec2(LEFT_W - 10.0f, 30.0f)))
     {
         SelectIndex = 2;
     }
 
     ImGui::SetCursorPos(ImVec2(5.0f, 140));
-    if (ImGui::Button(String::Menu::Script.c_str(), ImVec2(90.0f, 30.0f)))
+    if (ImGui::Button(String::Menu::Misc.c_str(), ImVec2(LEFT_W - 10.0f, 30.0f)))
     {
         SelectIndex = 3;
     }
 
     ImGui::SetCursorPos(ImVec2(5.0f, 175));
-    if (ImGui::Button(String::Menu::Config.c_str(), ImVec2(90.0f, 30.0f)))
+    if (ImGui::Button(String::Menu::Script.c_str(), ImVec2(LEFT_W - 10.0f, 30.0f)))
     {
         SelectIndex = 4;
+    }
+
+    ImGui::SetCursorPos(ImVec2(5.0f, 210));
+    if (ImGui::Button(String::Menu::Config.c_str(), ImVec2(LEFT_W - 10.0f, 30.0f)))
+    {
+        SelectIndex = 5;
     }
 
     ImGui::PopFont();
@@ -167,7 +175,7 @@ void MB_Left()
     ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(1.0f, 1.0f, 1.0f, 0.1f));
 
     ImGui::SetCursorPos(ImVec2(5.0f, MENU_H - 35.0f));
-    if (ImGui::Button(String::Menu::Language.c_str(), ImVec2(90.0f, 30.0f)))
+    if (ImGui::Button(String::Menu::Language.c_str(), ImVec2(LEFT_W - 10.0f, 30.0f)))
     {
         Menu::IsLanguageOpen = !Menu::IsLanguageOpen;
     }
@@ -176,10 +184,10 @@ void MB_Left()
     ImGui::PopFont();
     ImGui::PopStyleColor(4);
 
-    CurrentY = FInterp(CurrentY, (SelectIndex + 1) * 35.0f, 20.0f, 0.001f);
+    CurrentY = FInterp(CurrentY, (SelectIndex + 1) * 35.0f, 15.0f, 0.0001f);
     MainDrawRect(
         ImVec2(ImGui::GetWindowPos().x + 5.0f, ImGui::GetWindowPos().y + CurrentY),
-        ImVec2(ImGui::GetWindowPos().x + 95.0f, ImGui::GetWindowPos().y + CurrentY + 30.0f), 
+        ImVec2(ImGui::GetWindowPos().x + LEFT_W - 5.0f, ImGui::GetWindowPos().y + CurrentY + 30.0f),
         ImVec4(1.0f, 1.0f, 1.0f, 0.05f * MenuAlpha),
         ImGui::GetWindowDrawList()
     );
@@ -187,6 +195,24 @@ void MB_Left()
 
 void MB_Right()
 {
+    switch (SelectIndex)
+    {
+    case 0:
+
+        break;
+    case 1:
+
+        break;
+    case 2:
+
+        break;
+    case 3:
+
+        break;
+    case 4:
+
+        break;
+    }
 }
 
 void MB_Misc()
@@ -195,7 +221,7 @@ void MB_Misc()
     MainDrawRect(
         ImVec2(0.0f, 0.0f),
         ImVec2(Game::WndSize.right - Game::WndSize.left, Game::WndSize.bottom - Game::WndSize.top),
-        ImVec4(0.0f, 0.0f, 0.0f, 0.6f * MenuAlpha),
+        ImVec4(0.0f, 0.0f, 0.0f, 0.8f * MenuAlpha),
         ImGui::GetBackgroundDrawList()
     );
 
@@ -288,4 +314,28 @@ void LB_Base()
 
     ImGui::PopFont();
     ImGui::PopStyleColor(3);
+}
+
+void Right_Visual()
+{
+}
+
+void Right_Aim()
+{
+}
+
+void Right_Player()
+{
+}
+
+void Right_Misc()
+{
+}
+
+void Right_Script()
+{
+}
+
+void Right_Config()
+{
 }

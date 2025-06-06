@@ -11,22 +11,19 @@ float GetDeltaTime()
 	return SDK::UGameplayStatics::GetWorldDeltaSeconds(Unreal::GWorld);
 }
 
-bool GetGWorld()
+void GetGWorld()
 {
     Unreal::GWorld = SDK::UWorld::GetWorld();
-    return SDK::UKismetSystemLibrary::IsValid(Unreal::GWorld);
 }
 
-bool GetGPlayerController()
+void GetGPlayerController()
 {
     Unreal::GPlayerController = SDK::UGameplayStatics::GetPlayerController(Unreal::GWorld, 0);
-    return SDK::UKismetSystemLibrary::IsValid(Unreal::GPlayerController);
 }
 
-bool GetGPawn()
+void GetGPawn()
 {
     Unreal::GPawn = SDK::UGameplayStatics::GetPlayerPawn(Unreal::GWorld, 0);
-    return SDK::UKismetSystemLibrary::IsValid(Unreal::GPawn);
 }
 
 float FLerp(float a, float b, float alpha, float hold)

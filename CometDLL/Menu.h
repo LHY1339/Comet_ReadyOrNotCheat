@@ -22,3 +22,10 @@ void Language_End();
 
 void LB_Title();
 void LB_Base();
+
+void Right_Visual();
+void Right_Aim();
+void Right_Player();
+void Right_Misc();
+void Right_Script();
+void Right_Config();

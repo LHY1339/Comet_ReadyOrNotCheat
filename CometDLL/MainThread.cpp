@@ -27,7 +27,7 @@ void Exec_GetWindow()
         Game::Hwnd = FindWindow(L"UnrealWindow", NULL);
     }
     GetClientRect(Game::Hwnd, &Game::WndSize);
-    std::cout << "找到 Game::Hwnd = " << Game::Hwnd << std::endl;
+    std::cout << "Hwnd = " << Game::Hwnd << std::endl;
 }
 
 void Exec_InitD3D11()
@@ -67,10 +67,10 @@ void Exec_InitD3D11()
     );
     if (res != S_OK)
     {
-        std::cout << "无法初始化 SwapChain" << std::endl;
+        std::cout << "SwapChain Init Faild" << std::endl;
         return;
     }
-    std::cout << "初始化 SwapChain = " << Game::SwapChain << std::endl;
+    std::cout << "SwapChain = " << Game::SwapChain << std::endl;
 }
 
 void Exec_InitVtb()
@@ -78,21 +78,24 @@ void Exec_InitVtb()
     Game::Vtb = *(DWORD64**)Game::SwapChain;
     DWORD Protect;
     VirtualProtect(Game::Vtb, 1, PAGE_EXECUTE_READWRITE, &Protect);
-    std::cout << "初始化 Vtb = " << Game::Vtb << std::endl;
+    std::cout << "Vtb = " << Game::Vtb << std::endl;
 }
 
 void Exec_HookD3D11()
 {
     Game::DefPresent = (Present)Game::Vtb[8];
     Game::Vtb[8] = (DWORD64)Hook_PresentInit;
+    std::cout << "Hook Present = " << Hook_PresentInit << std::endl;
     Game::DefResize = (Resize)Game::Vtb[13];
     Game::Vtb[13] = (DWORD64)Hook_Resize;
+    std::cout << "Hook Resize = " << Hook_Resize << std::endl;
+    Game::SwapChain->Release();
 }
 
 void Exec_HookWindow()
 {
     Game::DefWndProc = (WndProc)SetWindowLongPtrA(Game::Hwnd, GWLP_WNDPROC, (LONG_PTR)Hook_WndProc);
-    Game::SwapChain->Release();
+    std::cout << "Hook WindowProc = " << Hook_WndProc << std::endl;
 }
 
 HRESULT __stdcall Hook_PresentInit(IDXGISwapChain* This, UINT SyncInterval, UINT Flags)
@@ -166,10 +169,17 @@ void PL_ImGuiFrame(IDXGISwapChain* This, UINT SyncInterval, UINT Flags)
 
 void PL_ImGuiBase(IDXGISwapChain* This, UINT SyncInterval, UINT Flags)
 {
-    if (GetGWorld() && GetGPlayerController() && GetGPawn())
-    {
+    GetGWorld(); 
+    GetGPlayerController();
+    GetGPawn();
 
+    static float delay_01 = 0.0f;
+    if (delay_01 < 2.0f)
+    {
+        delay_01 += GetDeltaTime();
+        return;
     }
+
     Menu_Loop();
 }
 

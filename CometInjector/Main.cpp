@@ -76,17 +76,64 @@ BOOL Inject(LPCTSTR DllPath, DWORD ProcessID)
 	return TRUE;
 }
 
+void SetConsoleColor(WORD color)
+{
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, color);
+}
+
 int main()
 {
-	CString DllPath = GetFirstDllAbsolutePath();
-	CString ExeName = "ReadyOrNot-Win64-Shipping.exe";
-	DWORD ProcID = FindProcess(ExeName);
-	if (!Inject(DllPath, ProcID))
+	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	std::cout << R"(
+   _____   ____  __  __ ______ _______ 
+  / ____| / __ \|  \/  |  ____|__   __|
+ | |     | |  | | \  / | |__     | |   
+ | |     | |  | | |\/| |  __|    | |   
+ | |____ | |__| | |  | | |____   | |   
+  \_____| \____/|_|  |_|______|  |_|   
+
+)" << std::endl;
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	printf(" > Run Injector Success!\n\n");
+	printf(" > Please Run The Game With ");
+	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	printf("DirectX11\n\n");
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	printf(" > If Your Game Has ");
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_INTENSITY);
+	printf("Crash");
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	printf(", Open The Injector ");
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	printf("Until You Reach The Main Menu\n\n");
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+
+	const CString DllPath = GetFirstDllAbsolutePath();
+	const CString ExeName = "ReadyOrNot-Win64-Shipping.exe";
+
+	bool was_inject = false;
+
+	while (true)
 	{
-		std::cout << "Inject Fail" << std::endl;
+		DWORD ProcID = FindProcess(ExeName);
+		if (!ProcID)
+		{
+			was_inject = false;
+		}
+		else
+		{
+			if (!was_inject)
+			{
+				was_inject = true;
+				if (Inject(DllPath, ProcID))
+				{
+					std::cout << " > Inject Success\n" << std::endl;
+				}
+			}
+		}
 		Sleep(1000);
-		return -1;
 	}
-	std::cout << "Inject Success" << std::endl;
+
 	return 0;
 }
