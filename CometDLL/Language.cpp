@@ -1,28 +1,30 @@
-#include "Language.h"
+ï»¿#include "Language.h"
 #include "Global.h"
 #include "Static.h"
 
 void LoadLanguage()
 {
-	String::Menu::Chinese = ToUtf8(L"¼òÌåÖĞÎÄ");
+	String::Menu::Chinese = ToUtf8(L"ç®€ä½“ä¸­æ–‡");
 	String::Menu::English = ToUtf8(L"English");
-	String::Menu::Russian = ToUtf8(L"§²§å§ã§ã§Ü§Ú§Û");
-	String::Menu::Japanese = ToUtf8(L"ÈÕ±¾ÕZ");
+	String::Menu::Russian = ToUtf8(L"Ğ ÑƒÑÑĞºĞ¸Ğ¹");
+	String::Menu::Japanese = ToUtf8(L"æ—¥æœ¬èª");
+	String::Menu::Korean = ToUtf8(L"í•œêµ­ì–´");
+	String::Menu::French = ToUtf8(L"FranÃ§ais");
 	switch (Menu::TargetLanguage)
 	{
 	case ELanguage::L_Chinese:
-		String::Menu::Title = ToUtf8(L"åçĞÇ");
-		String::Menu::Lable = ToUtf8(L"åçĞÇ - 2025.6.5 - lhy1339@gmail.com\n°´ÏÂ Insert ¼üºô³ö²Ëµ¥");
+		String::Menu::Title = ToUtf8(L"å½—æ˜Ÿ");
+		String::Menu::Lable = ToUtf8(L"å½—æ˜Ÿ - 2025.6.5 - lhy1339@gmail.com\næŒ‰ä¸‹ Insert é”®å‘¼å‡ºèœå•");
 
-		String::Menu::Visual = ToUtf8(L"ÊÓ¾õ");
-		String::Menu::Aim = ToUtf8(L"Ãé×¼");
-		String::Menu::Player = ToUtf8(L"Íæ¼Ò");
-		String::Menu::Misc = ToUtf8(L"ÔÓÏî");
-		String::Menu::Script = ToUtf8(L"½Å±¾");
-		String::Menu::Config = ToUtf8(L"ÅäÖÃ");
+		String::Menu::Visual = ToUtf8(L"è§†è§‰");
+		String::Menu::Aim = ToUtf8(L"ç„å‡†");
+		String::Menu::Player = ToUtf8(L"ç©å®¶");
+		String::Menu::Misc = ToUtf8(L"æ‚é¡¹");
+		String::Menu::Script = ToUtf8(L"è„šæœ¬");
+		String::Menu::Config = ToUtf8(L"é…ç½®");
 		break;
 	case ELanguage::L_English:
-		String::Menu::Title = ToUtf8(L"COMET");
+		String::Menu::Title = ToUtf8(L"Comet");
 		String::Menu::Lable = ToUtf8(L"Comet - 2025.6.5 - lhy1339@gmail.com\nPress Insert To Open Menu");
 
 		String::Menu::Visual = ToUtf8(L"Visual");
@@ -33,26 +35,48 @@ void LoadLanguage()
 		String::Menu::Config = ToUtf8(L"Config");
 		break;
 	case ELanguage::L_Russian:
-		String::Menu::Title = ToUtf8(L"§¬§à§Ş§Ö§ä§Ñ");
-		String::Menu::Lable = ToUtf8(L"§¬§à§Ş§Ö§ä§Ñ - 2025.6.5 - lhy1339@gmail.com\n§¯§Ñ§Ø§Ş§Ú§ä§Ö §Ü§İ§Ñ§Ó§Ú§ê§å Insert, §é§ä§à§Ò§í §à§ä§Ü§â§í§ä§î §Ş§Ö§ß§ğ");
+		String::Menu::Title = ToUtf8(L"ĞšĞ¾Ğ¼ĞµÑ‚Ğ°");
+		String::Menu::Lable = ToUtf8(L"ĞšĞ¾Ğ¼ĞµÑ‚Ğ° - 2025.6.5 - lhy1339@gmail.com\nĞĞ°Ğ¶Ğ¼Ğ¸Ñ‚Ğµ ĞºĞ»Ğ°Ğ²Ğ¸ÑˆÑƒ Insert, Ñ‡Ñ‚Ğ¾Ğ±Ñ‹ Ğ¾Ñ‚ĞºÑ€Ñ‹Ñ‚ÑŒ Ğ¼ĞµĞ½Ñ");
 
-		String::Menu::Visual = ToUtf8(L"§£§Ú§Ù§å§Ñ§İ");
-		String::Menu::Aim = ToUtf8(L"§±§â§Ú§è§Ö§İ");
-		String::Menu::Player = ToUtf8(L"§ª§Ô§â§à§Ü");
-		String::Menu::Misc = ToUtf8(L"§²§Ñ§Ù§ß§à§Ö");
-		String::Menu::Script = ToUtf8(L"§³§Ü§â§Ú§á§ä");
-		String::Menu::Config = ToUtf8(L"§¬§à§ß§æ§Ú§Ô");
+		String::Menu::Visual = ToUtf8(L"Ğ’Ğ¸Ğ·ÑƒĞ°Ğ»");
+		String::Menu::Aim = ToUtf8(L"ĞŸÑ€Ğ¸Ñ†ĞµĞ»");
+		String::Menu::Player = ToUtf8(L"Ğ˜Ğ³Ñ€Ğ¾Ğº");
+		String::Menu::Misc = ToUtf8(L"Ğ Ğ°Ğ·Ğ½Ğ¾Ğµ");
+		String::Menu::Script = ToUtf8(L"Ğ¡ĞºÑ€Ğ¸Ğ¿Ñ‚");
+		String::Menu::Config = ToUtf8(L"ĞšĞ¾Ğ½Ñ„Ğ¸Ğ³");
 		break;
 	case ELanguage::L_Japanese:
-		String::Menu::Title = ToUtf8(L"åçĞÇ");
-		String::Menu::Lable = ToUtf8(L"åçĞÇ - 2025.6.5 - lhy1339@gmail.com\nInsert¥­©`¤òÑº¤·¤Æ¥á¥Ë¥å©`¤òé_¤¯");
+		String::Menu::Title = ToUtf8(L"å½—æ˜Ÿ");
+		String::Menu::Lable = ToUtf8(L"å½—æ˜Ÿ - 2025.6.5 - lhy1339@gmail.com\nInsertã‚­ãƒ¼ã‚’æŠ¼ã—ã¦ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’é–‹ã");
 
-		String::Menu::Visual = ToUtf8(L"Ò•Ò™");
-		String::Menu::Aim = ToUtf8(L"ÕÕœÊ");
-		String::Menu::Player = ToUtf8(L"¥×¥ì¥¤¥ä©`");
-		String::Menu::Misc = ToUtf8(L"ëjí—");
-		String::Menu::Script = ToUtf8(L"¥¹¥¯¥ê¥×¥È");
-		String::Menu::Config = ToUtf8(L"ÔO¶¨");
+		String::Menu::Visual = ToUtf8(L"è¦–è¦š");
+		String::Menu::Aim = ToUtf8(L"ç…§æº–");
+		String::Menu::Player = ToUtf8(L"ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼");
+		String::Menu::Misc = ToUtf8(L"é›‘é …");
+		String::Menu::Script = ToUtf8(L"ã‚¹ã‚¯ãƒªãƒ—ãƒˆ");
+		String::Menu::Config = ToUtf8(L"è¨­å®š");
+		break;
+	case ELanguage::L_Korean:
+		String::Menu::Title = ToUtf8(L"í˜œì„±");
+		String::Menu::Lable = ToUtf8(L"í˜œì„± - 2025.6.5 - lhy1339@gmail.com\nInsert í‚¤ë¥¼ ëˆŒëŸ¬ ë©”ë‰´ë¥¼ í˜¸ì¶œí•˜ì„¸ìš”");
+
+		String::Menu::Visual = ToUtf8(L"ì‹œê°");
+		String::Menu::Aim = ToUtf8(L"ì¡°ì¤€");
+		String::Menu::Player = ToUtf8(L"í”Œë ˆì´ì–´");
+		String::Menu::Misc = ToUtf8(L"ê¸°íƒ€");
+		String::Menu::Script = ToUtf8(L"ìŠ¤í¬ë¦½íŠ¸");
+		String::Menu::Config = ToUtf8(L"ì„¤ì •");
+		break;
+	case ELanguage::L_French:
+		String::Menu::Title = ToUtf8(L"ComÃ¨te");
+		String::Menu::Lable = ToUtf8(L"ComÃ¨te - 2025.6.5 - lhy1339@gmail.com\nAppuyez sur la touche Insert pour afficher le menu");
+
+		String::Menu::Visual = ToUtf8(L"Visuel");
+		String::Menu::Aim = ToUtf8(L"Viser");
+		String::Menu::Player = ToUtf8(L"Joueur");
+		String::Menu::Misc = ToUtf8(L"Divers");
+		String::Menu::Script = ToUtf8(L"Script");
+		String::Menu::Config = ToUtf8(L"Config");
 		break;
 	}
 }
@@ -91,6 +115,6 @@ ImVector<ImWchar> BuildFonts()
 
 void QuickLoadLanguageAndFont()
 {
-	LoadFont("C:/Windows/Fonts/msyh.ttc");
+	LoadFont("C:\\Windows\\Fonts\\msyh.ttc");
 	LoadLanguage();
 }

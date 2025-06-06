@@ -14,12 +14,12 @@
 
 #define LEFT_W 100.0f
 
-#define LANGUAGE_W 100.0f
-#define LANGUAGE_H 175.0f
+#define LANGUAGE_W 150.0f
+#define LANGUAGE_H 300.0f
 
 float MenuAlpha = 0.0f;
 int SelectIndex = 0;
-float CurrentY = 0.0f;
+float CurrentY = 35.0f;
 
 void Menu_Loop()
 {
@@ -309,6 +309,20 @@ void LB_Base()
     if (ImGui::Button(String::Menu::Japanese.c_str(), ImVec2(LANGUAGE_W - 10.0f, 30.0f)))
     {
         Menu::TargetLanguage = ELanguage::L_Japanese;
+        LoadLanguage();
+    }
+
+    //ImGui::SetCursorPos(ImVec2(5.0f, 175.0f));
+    //if (ImGui::Button(String::Menu::Korean.c_str(), ImVec2(LANGUAGE_W - 10.0f, 30.0f)))
+    //{
+    //    Menu::TargetLanguage = ELanguage::L_Korean;
+    //    LoadLanguage();
+    //}
+
+    ImGui::SetCursorPos(ImVec2(5.0f, 175.0f));
+    if (ImGui::Button(String::Menu::French.c_str(), ImVec2(LANGUAGE_W - 10.0f, 30.0f)))
+    {
+        Menu::TargetLanguage = ELanguage::L_French;
         LoadLanguage();
     }
 

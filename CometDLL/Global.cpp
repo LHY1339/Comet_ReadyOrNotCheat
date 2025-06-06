@@ -50,6 +50,8 @@ namespace String
         std::string English = "";
         std::string Russian = "";
         std::string Japanese = "";
+        std::string Korean = "";
+        std::string French = "";
     }
 }
 

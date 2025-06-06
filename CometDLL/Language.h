@@ -9,7 +9,8 @@ enum class ELanguage
 	L_English,
 	L_Russian,
 	L_Japanese,
-	L_None
+	L_Korean,
+	L_French
 };
 
 void LoadLanguage();
