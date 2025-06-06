@@ -31,6 +31,18 @@
     <Filter Include="Source\Language">
       <UniqueIdentifier>{472b05fb-e23b-4b34-b3a7-e78419464d94}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Static\UnrealStatic">
+      <UniqueIdentifier>{065e9852-08cb-406d-9626-ab8ed6ff295d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Static\ImGuiStatic">
+      <UniqueIdentifier>{ad51113f-5be8-4488-ad91-5cf1a64dc3ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Static\MathStatic">
+      <UniqueIdentifier>{43286fc5-3e58-4bf7-ac49-823b66c75666}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Static\StringStatic">
+      <UniqueIdentifier>{0611a2c9-5776-42e2-9517-7b8d4875ea80}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -75,11 +87,20 @@
     <ClInclude Include="Menu.h">
       <Filter>Source\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="Static.h">
-      <Filter>Source\Static</Filter>
-    </ClInclude>
     <ClInclude Include="Language.h">
       <Filter>Source\Language</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGuiStatic.h">
+      <Filter>Source\Static\ImGuiStatic</Filter>
+    </ClInclude>
+    <ClInclude Include="MathStatic.h">
+      <Filter>Source\Static\MathStatic</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealStatic.h">
+      <Filter>Source\Static\UnrealStatic</Filter>
+    </ClInclude>
+    <ClInclude Include="StringStatic.h">
+      <Filter>Source\Static\StringStatic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -125,11 +146,20 @@
     <ClCompile Include="Menu.cpp">
       <Filter>Source\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="Static.cpp">
-      <Filter>Source\Static</Filter>
-    </ClCompile>
     <ClCompile Include="Language.cpp">
       <Filter>Source\Language</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGuiStatic.cpp">
+      <Filter>Source\Static\ImGuiStatic</Filter>
+    </ClCompile>
+    <ClCompile Include="MathStatic.cpp">
+      <Filter>Source\Static\MathStatic</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealStatic.cpp">
+      <Filter>Source\Static\UnrealStatic</Filter>
+    </ClCompile>
+    <ClCompile Include="StringStatic.cpp">
+      <Filter>Source\Static\StringStatic</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -144,6 +144,7 @@
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Function.h" />
     <ClInclude Include="Global.h" />
+    <ClInclude Include="ImGuiStatic.h" />
     <ClInclude Include="ImGui\imconfig.h" />
     <ClInclude Include="ImGui\imgui.h" />
     <ClInclude Include="ImGui\imgui_impl_dx11.h" />
@@ -154,12 +155,15 @@
     <ClInclude Include="ImGui\imstb_truetype.h" />
     <ClInclude Include="Language.h" />
     <ClInclude Include="MainThread.h" />
+    <ClInclude Include="MathStatic.h" />
     <ClInclude Include="Menu.h" />
-    <ClInclude Include="Static.h" />
+    <ClInclude Include="StringStatic.h" />
     <ClInclude Include="Struct.h" />
+    <ClInclude Include="UnrealStatic.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Global.cpp" />
+    <ClCompile Include="ImGuiStatic.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />
     <ClCompile Include="ImGui\imgui_draw.cpp" />
     <ClCompile Include="ImGui\imgui_impl_dx11.cpp" />
@@ -169,12 +173,14 @@
     <ClCompile Include="Language.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainThread.cpp" />
+    <ClCompile Include="MathStatic.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="SDK\Basic.cpp" />
     <ClCompile Include="SDK\CoreUObject_functions.cpp" />
     <ClCompile Include="SDK\Engine_functions.cpp" />
     <ClCompile Include="SDK\ReadyOrNot_functions.cpp" />
-    <ClCompile Include="Static.cpp" />
+    <ClCompile Include="StringStatic.cpp" />
+    <ClCompile Include="UnrealStatic.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

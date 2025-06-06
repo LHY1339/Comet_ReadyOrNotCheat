@@ -1,6 +1,7 @@
 ﻿#include "Language.h"
 #include "Global.h"
-#include "Static.h"
+#include "StringStatic.h"
+#include "Enum.h"
 
 void LoadLanguage()
 {

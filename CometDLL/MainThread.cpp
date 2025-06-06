@@ -1,7 +1,7 @@
 #include "MainThread.h"
 #include "Global.h"
 #include "Menu.h"
-#include "Static.h"
+#include "UnrealStatic.h"
 #include "Language.h"
 
 #include "ImGui/imgui.h"

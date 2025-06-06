@@ -1,7 +1,9 @@
 #include "Menu.h"
 #include "Global.h"
-#include "Static.h"
+#include "MathStatic.h"
+#include "ImGuiStatic.h"
 #include "Language.h"
+#include "Enum.h"
 
 #include "ImGui/imgui.h"
 #include "ImGui/imgui_impl_dx11.h"

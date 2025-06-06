@@ -1,6 +1,6 @@
 #include "Global.h"
-#include "SDK.hpp"
 #include "Language.h"
+#include "Enum.h"
 
 namespace Game
 {
