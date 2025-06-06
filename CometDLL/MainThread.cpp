@@ -139,6 +139,8 @@ void PI_ImGui(IDXGISwapChain* This, UINT SyncInterval, UINT Flags)
     style.Colors[ImGuiCol_HeaderActive] = ImVec4(0.5f, 0.9f, 1.0f, 1.0f);
     style.WindowBorderSize = 1.0f;
 
+    QuickLoadLanguageAndFont();
+
     ImGui_ImplDX11_Init(Game::Device, Game::DeviceContext);
 }
 
@@ -157,7 +159,6 @@ HRESULT __stdcall Hook_PresentLoop(IDXGISwapChain* This, UINT SyncInterval, UINT
 
 void PL_ImGuiFrame(IDXGISwapChain* This, UINT SyncInterval, UINT Flags)
 {
-    QuickLoadLanguageAndFont();
     ImGui_ImplDX11_NewFrame();
     ImGui_ImplWin32_NewFrame();
     ImGui::NewFrame();

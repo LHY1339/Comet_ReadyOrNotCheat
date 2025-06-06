@@ -2,15 +2,13 @@
 #include "Global.h"
 #include "Static.h"
 
-ELanguage CurrentLanguage = ELanguage::L_None;
-
-void LoadLanguage(ELanguage NewLanguage)
+void LoadLanguage()
 {
-	String::Menu::Chinese = ToUtf8(L"Chinese");
+	String::Menu::Chinese = ToUtf8(L"简体中文");
 	String::Menu::English = ToUtf8(L"English");
-	String::Menu::Russian = ToUtf8(L"Russian");
-	String::Menu::Japanese = ToUtf8(L"Japanese");
-	switch (NewLanguage)
+	String::Menu::Russian = ToUtf8(L"Русский");
+	String::Menu::Japanese = ToUtf8(L"日本語");
+	switch (Menu::TargetLanguage)
 	{
 	case ELanguage::L_Chinese:
 		String::Menu::Title = ToUtf8(L"彗星");
@@ -59,7 +57,7 @@ void LoadLanguage(ELanguage NewLanguage)
 	}
 }
 
-void LoadFont(const char* Path, const ImWchar* Glyph)
+void LoadFont(const char* Path)
 {
 	ImGuiIO& io = ImGui::GetIO();
 	io.Fonts->Clear();
@@ -67,35 +65,32 @@ void LoadFont(const char* Path, const ImWchar* Glyph)
 	config.MergeMode = false;
 	config.PixelSnapH = true;
 
-	Resource::Fonts::F10 = io.Fonts->AddFontFromFileTTF(Path, 10.0f, &config, Glyph);
-	Resource::Fonts::F20 = io.Fonts->AddFontFromFileTTF(Path, 20.0f, &config, Glyph);
-	//Resource::Fonts::F30 = io.Fonts->AddFontFromFileTTF(Path, 30.0f, nullptr, Glyph);
+	ImVector<ImWchar> range = BuildFonts();
+
+	Resource::Fonts::F10 = io.Fonts->AddFontFromFileTTF(Path, 10.0f, &config, range.Data);
+	Resource::Fonts::F20 = io.Fonts->AddFontFromFileTTF(Path, 20.0f, &config, range.Data);
+
 	ImGui_ImplDX11_InvalidateDeviceObjects();
 	io.Fonts->Build();
 	ImGui_ImplDX11_CreateDeviceObjects();
 }
 
+ImVector<ImWchar> BuildFonts()
+{
+	ImFontGlyphRangesBuilder builder;
+
+	builder.AddRanges(ImGui::GetIO().Fonts->GetGlyphRangesDefault());
+	builder.AddRanges(ImGui::GetIO().Fonts->GetGlyphRangesCyrillic());
+	builder.AddRanges(ImGui::GetIO().Fonts->GetGlyphRangesJapanese());
+	builder.AddRanges(ImGui::GetIO().Fonts->GetGlyphRangesChineseFull());
+
+	ImVector<ImWchar> out_ranges;
+	builder.BuildRanges(&out_ranges);
+	return out_ranges;
+}
+
 void QuickLoadLanguageAndFont()
 {
-	if (CurrentLanguage == Menu::TargetLanguage)
-	{
-		return;
-	}
-	CurrentLanguage = Menu::TargetLanguage;
-	LoadLanguage(CurrentLanguage);
-	switch (CurrentLanguage)
-	{
-	case ELanguage::L_Chinese:
-		LoadFont("C:/Windows/Fonts/msyh.ttc", ImGui::GetIO().Fonts->GetGlyphRangesChineseFull());
-		break;
-	case ELanguage::L_English:
-		LoadFont("C:/Windows/Fonts/msyh.ttc", ImGui::GetIO().Fonts->GetGlyphRangesDefault());
-		break;
-	case ELanguage::L_Russian:
-		LoadFont("C:/Windows/Fonts/msyh.ttc", ImGui::GetIO().Fonts->GetGlyphRangesCyrillic());
-		break;
-	case ELanguage::L_Japanese:
-		LoadFont("C:/Windows/Fonts/msyh.ttc", ImGui::GetIO().Fonts->GetGlyphRangesJapanese());
-		break;
-	}
+	LoadFont("C:/Windows/Fonts/msyh.ttc");
+	LoadLanguage();
 }

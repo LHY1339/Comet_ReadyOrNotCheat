@@ -5,6 +5,7 @@ void Menu_Loop();
 void Loop_Logic();
 void Loop_Menu();
 void Loop_Language();
+void Loop_Lable();
 
 void Menu_Start();
 void Menu_Base();

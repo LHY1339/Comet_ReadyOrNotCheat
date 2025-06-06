@@ -59,7 +59,5 @@ namespace Resource
     {
         ImFont* F10 = nullptr;
         ImFont* F20 = nullptr;
-        //ImFont* F30 = nullptr;
-        //ImFont* F40 = nullptr;
     }
 }

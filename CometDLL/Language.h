@@ -12,6 +12,7 @@ enum class ELanguage
 	L_None
 };
 
-void LoadLanguage(ELanguage NewLanguage);
-void LoadFont(const char* Path, const ImWchar* Glyph);
+void LoadLanguage();
+void LoadFont(const char* Path);
+ImVector<ImWchar> BuildFonts();
 void QuickLoadLanguageAndFont();

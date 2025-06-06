@@ -75,6 +75,5 @@ namespace Resource
     {
         extern ImFont* F10;
         extern ImFont* F20;
-        //extern ImFont* F30;
     }
 }

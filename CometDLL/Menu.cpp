@@ -13,7 +13,7 @@
 #define MENU_H 400.0f
 
 #define LANGUAGE_W 100.0f
-#define LANGUAGE_H 300.0f
+#define LANGUAGE_H 175.0f
 
 float MenuAlpha = 0.0f;
 int SelectIndex = 0;
@@ -23,6 +23,7 @@ void Menu_Loop()
 {
 	Loop_Logic();
     Loop_Menu();
+    Loop_Lable();
 }
 
 void Loop_Logic()
@@ -53,6 +54,17 @@ void Loop_Language()
     Language_Start();
     Language_Base();
     Language_End();
+}
+
+void Loop_Lable()
+{
+    MainDrawText(
+        ImVec2(5.0f, 5.0f),
+        String::Menu::Lable,
+        ImVec4(1.0f, 1.0f, 1.0f, 0.8f), 
+        Resource::Fonts::F20, 16.0f,
+        ImGui::GetBackgroundDrawList()
+    );
 }
 
 void Menu_Start()
@@ -200,7 +212,7 @@ void Language_Start()
 {
     ImVec2 window_size(LANGUAGE_W, LANGUAGE_H);
     ImGui::SetNextWindowSize(window_size);
-    ImGui::SetNextWindowPos(ImVec2(20.0f, 20.0f), ImGuiCond_Once);
+    ImGui::SetNextWindowPos(ImVec2(100.0f, 100.0f), ImGuiCond_Once);
     ImGui::PushStyleVar(ImGuiStyleVar_Alpha, MenuAlpha);
     ImGui::Begin("Language", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
 }
@@ -247,31 +259,31 @@ void LB_Base()
     ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(1.0f, 1.0f, 1.0f, 0.1f));
 
     ImGui::SetCursorPos(ImVec2(5.0f, 35.0f));
-    if (ImGui::Button(String::Menu::Chinese.c_str(), ImVec2(90.0f, 30.0f)))
+    if (ImGui::Button(String::Menu::Chinese.c_str(), ImVec2(LANGUAGE_W - 10.0f, 30.0f)))
     {
-        LoadLanguage(ELanguage::L_Chinese);
-        LoadFont("C:/Windows/Fonts/msyh.ttc", ImGui::GetIO().Fonts->GetGlyphRangesChineseFull());
+        Menu::TargetLanguage = ELanguage::L_Chinese;
+        LoadLanguage();
     }
 
     ImGui::SetCursorPos(ImVec2(5.0f, 70.0f));
-    if (ImGui::Button(String::Menu::English.c_str(), ImVec2(90.0f, 30.0f)))
+    if (ImGui::Button(String::Menu::English.c_str(), ImVec2(LANGUAGE_W - 10.0f, 30.0f)))
     {
-        LoadLanguage(ELanguage::L_English);
-        LoadFont("C:/Windows/Fonts/msyh.ttc", ImGui::GetIO().Fonts->GetGlyphRangesDefault());
+        Menu::TargetLanguage = ELanguage::L_English;
+        LoadLanguage();
     }
 
     ImGui::SetCursorPos(ImVec2(5.0f, 105.0f));
-    if (ImGui::Button(String::Menu::Russian.c_str(), ImVec2(90.0f, 30.0f)))
+    if (ImGui::Button(String::Menu::Russian.c_str(), ImVec2(LANGUAGE_W - 10.0f, 30.0f)))
     {
-        LoadLanguage(ELanguage::L_Russian);
-        LoadFont("C:/Windows/Fonts/msyh.ttc", ImGui::GetIO().Fonts->GetGlyphRangesCyrillic());
+        Menu::TargetLanguage = ELanguage::L_Russian;
+        LoadLanguage();
     }
 
     ImGui::SetCursorPos(ImVec2(5.0f, 140.0f));
-    if (ImGui::Button(String::Menu::Japanese.c_str(), ImVec2(90.0f, 30.0f)))
+    if (ImGui::Button(String::Menu::Japanese.c_str(), ImVec2(LANGUAGE_W - 10.0f, 30.0f)))
     {
-        LoadLanguage(ELanguage::L_Japanese);
-        LoadFont("C:/Windows/Fonts/msyh.ttc", ImGui::GetIO().Fonts->GetGlyphRangesJapanese());
+        Menu::TargetLanguage = ELanguage::L_Japanese;
+        LoadLanguage();
     }
 
     ImGui::PopFont();
