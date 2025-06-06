@@ -12,8 +12,8 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 {
     if (ul_reason_for_call == DLL_PROCESS_ATTACH)
     {
-        AllocConsole();
-        FILE* value = freopen("CONOUT$", "w+", stdout);
+        //AllocConsole();
+        //FILE* value = freopen("CONOUT$", "w+", stdout);
         CloseHandle(CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)Thread_Execute, NULL, NULL, NULL));
     }
     return TRUE;
