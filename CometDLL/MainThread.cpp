@@ -22,6 +22,7 @@ void Thread_Execute()
 
 void Exec_GetWindow()
 {
+    Sleep(1000);
     while (Game::Hwnd == nullptr)
     {
         Game::Hwnd = FindWindow(L"UnrealWindow", NULL);

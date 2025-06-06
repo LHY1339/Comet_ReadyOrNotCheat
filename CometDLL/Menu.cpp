@@ -25,7 +25,6 @@ void Menu_Loop()
 {
 	Loop_Logic();
     Loop_Menu();
-    Loop_Lable();
 }
 
 void Loop_Logic()
@@ -49,6 +48,7 @@ void Loop_Menu()
             Loop_Language();
         }
     }
+    Loop_Lable();
 }
 
 void Loop_Language()
@@ -60,10 +60,31 @@ void Loop_Language()
 
 void Loop_Lable()
 {
-    MainDrawText(
+    Resource::Fonts::F20->Scale = 0.8f;
+    ImGui::PushFont(Resource::Fonts::F20);
+    ImVec2 lable_size = ImGui::CalcTextSize(String::Menu::Lable.c_str());
+    ImGui::PopFont();
+    Resource::Fonts::F20->Scale = 1.0f;
+
+    MainDrawRect(
         ImVec2(5.0f, 5.0f),
+        ImVec2(lable_size.x + 13.0f, lable_size.y + 15.0f),
+        ImVec4(0.0f, 0.0f, 0.0f, 0.6f),
+        ImGui::GetBackgroundDrawList()
+    );
+
+    MainDrawBox(
+        ImVec2(5.0f, 5.0f),
+        ImVec2(lable_size.x + 13.0f, lable_size.y + 15.0f),
+        ImVec4(0.1f, 0.3f, 0.5f, 0.6f),
+        1.0f,
+        ImGui::GetBackgroundDrawList()
+    );
+
+    MainDrawText(
+        ImVec2(10.0f, 10.0f),
         String::Menu::Lable,
-        ImVec4(1.0f, 1.0f, 1.0f, 0.8f), 
+        ImVec4(1.0f, 1.0f, 1.0f, 0.6f),
         Resource::Fonts::F20, 16.0f,
         ImGui::GetBackgroundDrawList()
     );

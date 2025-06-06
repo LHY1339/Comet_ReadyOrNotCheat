@@ -14,7 +14,7 @@ void LoadLanguage()
 	{
 	case ELanguage::L_Chinese:
 		String::Menu::Title = ToUtf8(L"彗星");
-		String::Menu::Lable = ToUtf8(L"彗星 - 2025.6.5 - lhy1339@gmail.com\n按下 Insert 键呼出菜单");
+		String::Menu::Lable = ToUtf8(L"https://github.com/LHY1339/Comet_ReadyOrNotCheat \n按下 Insert 键呼出菜单");
 
 		String::Menu::Visual = ToUtf8(L"视觉");
 		String::Menu::Aim = ToUtf8(L"瞄准");
@@ -25,7 +25,7 @@ void LoadLanguage()
 		break;
 	case ELanguage::L_English:
 		String::Menu::Title = ToUtf8(L"Comet");
-		String::Menu::Lable = ToUtf8(L"Comet - 2025.6.5 - lhy1339@gmail.com\nPress Insert To Open Menu");
+		String::Menu::Lable = ToUtf8(L"https://github.com/LHY1339/Comet_ReadyOrNotCheat \nPress Insert To Open Menu");
 
 		String::Menu::Visual = ToUtf8(L"Visual");
 		String::Menu::Aim = ToUtf8(L"Aimbot");
@@ -36,7 +36,7 @@ void LoadLanguage()
 		break;
 	case ELanguage::L_Russian:
 		String::Menu::Title = ToUtf8(L"Комета");
-		String::Menu::Lable = ToUtf8(L"Комета - 2025.6.5 - lhy1339@gmail.com\nНажмите клавишу Insert, чтобы открыть меню");
+		String::Menu::Lable = ToUtf8(L"https://github.com/LHY1339/Comet_ReadyOrNotCheat \nНажмите клавишу Insert, чтобы открыть меню");
 
 		String::Menu::Visual = ToUtf8(L"Визуал");
 		String::Menu::Aim = ToUtf8(L"Прицел");
@@ -47,7 +47,7 @@ void LoadLanguage()
 		break;
 	case ELanguage::L_Japanese:
 		String::Menu::Title = ToUtf8(L"彗星");
-		String::Menu::Lable = ToUtf8(L"彗星 - 2025.6.5 - lhy1339@gmail.com\nInsertキーを押してメニューを開く");
+		String::Menu::Lable = ToUtf8(L"https://github.com/LHY1339/Comet_ReadyOrNotCheat \nInsertキーを押してメニューを開く");
 
 		String::Menu::Visual = ToUtf8(L"視覚");
 		String::Menu::Aim = ToUtf8(L"照準");
@@ -58,7 +58,7 @@ void LoadLanguage()
 		break;
 	case ELanguage::L_Korean:
 		String::Menu::Title = ToUtf8(L"혜성");
-		String::Menu::Lable = ToUtf8(L"혜성 - 2025.6.5 - lhy1339@gmail.com\nInsert 키를 눌러 메뉴를 호출하세요");
+		String::Menu::Lable = ToUtf8(L"https://github.com/LHY1339/Comet_ReadyOrNotCheat \nInsert 키를 눌러 메뉴를 호출하세요");
 
 		String::Menu::Visual = ToUtf8(L"시각");
 		String::Menu::Aim = ToUtf8(L"조준");
@@ -69,7 +69,7 @@ void LoadLanguage()
 		break;
 	case ELanguage::L_French:
 		String::Menu::Title = ToUtf8(L"Comète");
-		String::Menu::Lable = ToUtf8(L"Comète - 2025.6.5 - lhy1339@gmail.com\nAppuyez sur la touche Insert pour afficher le menu");
+		String::Menu::Lable = ToUtf8(L"https://github.com/LHY1339/Comet_ReadyOrNotCheat \nAppuyez sur la touche Insert pour afficher le menu");
 
 		String::Menu::Visual = ToUtf8(L"Visuel");
 		String::Menu::Aim = ToUtf8(L"Viser");

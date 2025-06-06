@@ -95,14 +95,25 @@ int main()
 
 )" << std::endl;
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-	printf(" > Run Injector Success!\n\n");
-	printf(" > Please Run The Game With ");
+	printf(" >>> Run Injector Success!\n\n");
+
+	printf(" >>> Github : ");
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+	printf("https://github.com/LHY1339/Comet_ReadyOrNotCheat \n\n");
+
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	printf(" >>> Please Run The Game With ");
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	printf("DirectX11\n\n");
+
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-	printf(" > If Your Game Has ");
+	printf(" >>> If Your ");
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_INTENSITY);
-	printf("Crash");
+	printf("Game Has Crashed");
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	printf(" Or ");
+	SetConsoleColor(FOREGROUND_RED | FOREGROUND_INTENSITY);
+	printf("Cant Find Game Window");
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
 	printf(", Open The Injector ");
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
@@ -117,7 +128,8 @@ int main()
 	while (true)
 	{
 		DWORD ProcID = FindProcess(ExeName);
-		if (!ProcID)
+		HWND hwnd = FindWindow(L"UnrealWindow", NULL);
+		if (!ProcID || !hwnd)
 		{
 			was_inject = false;
 		}
@@ -128,11 +140,11 @@ int main()
 				was_inject = true;
 				if (Inject(DllPath, ProcID))
 				{
-					std::cout << " > Inject Success\n" << std::endl;
+					std::cout << " > Inject Success" << std::endl;
 				}
 			}
 		}
-		Sleep(500);
+		Sleep(100);
 	}
 
 	return 0;
