@@ -43,6 +43,12 @@
     <Filter Include="Source\Static\StringStatic">
       <UniqueIdentifier>{0611a2c9-5776-42e2-9517-7b8d4875ea80}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{e24c1235-36e6-40ed-b03f-cc82ef899d26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Cheat">
+      <UniqueIdentifier>{c6ed0eb4-98a3-4931-a3f5-89471244646c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -101,6 +107,9 @@
     </ClInclude>
     <ClInclude Include="StringStatic.h">
       <Filter>Source\Static\StringStatic</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Resource</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -161,5 +170,15 @@
     <ClCompile Include="StringStatic.cpp">
       <Filter>Source\Static\StringStatic</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CometDLL.rc">
+      <Filter>Resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Inject.wav">
+      <Filter>Resource</Filter>
+    </Media>
   </ItemGroup>
 </Project>

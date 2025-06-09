@@ -1,7 +1,12 @@
 ﻿  Global.cpp
+  Language.cpp
+  Main.cpp
+  MainThread.cpp
+  Menu.cpp
+  UnrealStatic.cpp
   Generating code
-  0 of 1826 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  3 of 1827 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    37 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   CometDLL.vcxproj -> F:\_Github\Comet_ReadyOrNotCheat\x64\Release\CometDLL.dll

@@ -8,11 +8,14 @@
 #include "ImGui/imgui_impl_dx11.h"
 #include "ImGui/imgui_impl_win32.h"
 
+#include "resource.h"
+
 #include <Windows.h>
 #include <iostream>
 
 void Thread_Execute()
 {
+    Exec_PreLaunch();
     Exec_GetWindow();
     Exec_InitD3D11();
     Exec_InitVtb();
@@ -20,9 +23,13 @@ void Thread_Execute()
     Exec_HookWindow();
 }
 
-void Exec_GetWindow()
+void Exec_PreLaunch()
 {
     Sleep(1000);
+}
+
+void Exec_GetWindow()
+{
     while (Game::Hwnd == nullptr)
     {
         Game::Hwnd = FindWindow(L"UnrealWindow", NULL);

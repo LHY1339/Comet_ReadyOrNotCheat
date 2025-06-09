@@ -18,6 +18,7 @@ namespace SDK
 
 namespace Game
 {
+    extern HMODULE DllModule;
 	extern HWND Hwnd;
 	extern DWORD64* Vtb;
     extern IDXGISwapChain* SwapChain;
@@ -75,5 +76,13 @@ namespace Resource
     {
         extern ImFont* F10;
         extern ImFont* F20;
+    }
+}
+
+namespace Cheat
+{
+    namespace Visual
+    {
+
     }
 }

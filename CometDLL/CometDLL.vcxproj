@@ -157,6 +157,7 @@
     <ClInclude Include="MainThread.h" />
     <ClInclude Include="MathStatic.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="StringStatic.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="UnrealStatic.h" />
@@ -181,6 +182,12 @@
     <ClCompile Include="SDK\ReadyOrNot_functions.cpp" />
     <ClCompile Include="StringStatic.cpp" />
     <ClCompile Include="UnrealStatic.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CometDLL.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Inject.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

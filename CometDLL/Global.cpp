@@ -1,9 +1,11 @@
 #include "Global.h"
 #include "Language.h"
 #include "Enum.h"
+#include "Struct.h"
 
 namespace Game
 {
+    HMODULE DllModule = nullptr;
     HWND Hwnd = nullptr;
     DWORD64* Vtb = nullptr;
     IDXGISwapChain* SwapChain = nullptr;

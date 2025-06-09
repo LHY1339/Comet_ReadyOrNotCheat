@@ -1,4 +1,5 @@
 #include "MainThread.h"
+#include "Global.h"
 #include <Windows.h>
 #include <iostream>
 
@@ -14,6 +15,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,
     {
         //AllocConsole();
         //FILE* value = freopen("CONOUT$", "w+", stdout);
+        Game::DllModule = hModule;
         CloseHandle(CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)Thread_Execute, NULL, NULL, NULL));
     }
     return TRUE;

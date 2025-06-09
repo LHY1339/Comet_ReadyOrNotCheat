@@ -84,7 +84,18 @@ void SetConsoleColor(WORD color)
 
 int main()
 {
+	HWND hwnd = GetConsoleWindow();
+
+	SetWindowText(hwnd, L"Comet Injector [LHY1339]");
+
+	MoveWindow(hwnd, 100, 100, 1000, 500, TRUE);
+	LONG style = GetWindowLong(hwnd, GWL_STYLE);
+	style &= ~WS_SIZEBOX;
+	style &= ~WS_MAXIMIZEBOX;
+	SetWindowLong(hwnd, GWL_STYLE, style);
+	SetWindowPos(hwnd, nullptr, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_NOZORDER | SWP_FRAMECHANGED);
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+
 	std::cout << R"(
    _____   ____  __  __ ______ _______ 
   / ____| / __ \|  \/  |  ____|__   __|
@@ -102,7 +113,7 @@ int main()
 	printf("https://github.com/LHY1339/Comet_ReadyOrNotCheat \n\n");
 
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-	printf(" >>> Please Run The Game With ");
+	printf(" >>> Please Launch Your Game With ");
 	SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	printf("DirectX11\n\n");
 
@@ -118,7 +129,6 @@ int main()
 	printf(", Open The Injector ");
 	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	printf("Until You Reach The Main Menu\n\n");
-	SetConsoleColor(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 
 	const CString DllPath = GetFirstDllAbsolutePath();
 	const CString ExeName = "ReadyOrNot-Win64-Shipping.exe";
@@ -140,6 +150,7 @@ int main()
 				was_inject = true;
 				if (Inject(DllPath, ProcID))
 				{
+					SetConsoleColor(FOREGROUND_GREEN);
 					std::cout << " > Inject Success" << std::endl;
 				}
 			}

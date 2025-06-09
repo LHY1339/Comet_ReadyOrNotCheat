@@ -2,6 +2,7 @@
 #include "Function.h"
 
 void Thread_Execute();
+void Exec_PreLaunch();
 void Exec_GetWindow();
 void Exec_InitD3D11();
 void Exec_InitVtb();
